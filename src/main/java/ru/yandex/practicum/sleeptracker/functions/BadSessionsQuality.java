@@ -19,10 +19,9 @@ import java.util.List;
 public class BadSessionsQuality implements SleepAnalysisFunction {
     @Override
     public SleepAnalysisResult<Long> analyze(List<SleepingSession> sessions) {
-        long countSessions = sessions.
-                stream().filter(session -> session.getCondition().equals(Condition.BAD)).count();
+        long countSessions = sessions.stream()
+                .filter(session -> session.getCondition().equals(Condition.BAD)).count();
 
-        return new SleepAnalysisResult<Long>("Количество сессий с плохим качеством сна",
-                countSessions);
+        return new SleepAnalysisResult<Long>("Количество сессий с плохим качеством сна", countSessions);
     }
 }
