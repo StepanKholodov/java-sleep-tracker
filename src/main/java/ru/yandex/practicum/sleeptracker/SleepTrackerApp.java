@@ -23,6 +23,7 @@ public class SleepTrackerApp {
         ANALYSIS_FUNCTIONS.add(new MaxSessionsDuration());
         ANALYSIS_FUNCTIONS.add(new AvgSessionsDuration());
         ANALYSIS_FUNCTIONS.add(new BadSessionsQuality());
+        ANALYSIS_FUNCTIONS.add(new SleeplessNightsCounter());
 
 
 

@@ -16,6 +16,6 @@ public class AvgSessionsDuration implements SleepAnalysisFunction {
                 .average()
                 .orElse(0);
 
-        return new SleepAnalysisResult<>("Средняя продолжительность сна в минутах", avgMinutes);
+        return new SleepAnalysisResult<Double>("Средняя продолжительность сна в минутах", avgMinutes);
     }
 }
