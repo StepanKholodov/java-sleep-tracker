@@ -26,7 +26,7 @@ public class MinSessionsDuration implements SleepAnalysisFunction {
                 stream().
                 map(session -> {
                     return Duration.between(session.getStart(), session.getEnd()).toMinutes();
-        }).min(Long::compareTo).orElse(0L);
+                }).min(Long::compareTo).orElse(0L);
 
         return new SleepAnalysisResult<Long>("Минимальная продолжительность сна в минутах",
                 minSessionsDuration);

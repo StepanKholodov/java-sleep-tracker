@@ -18,13 +18,10 @@ import java.util.List;
 public class MaxSessionsDuration implements SleepAnalysisFunction {
     @Override
     public SleepAnalysisResult<Long> analyze(List<SleepingSession> sessions) {
-        long maxSessionsDuration = sessions.
-                stream().
-                map(session -> {
-                    return Duration.between(session.getStart(), session.getEnd()).toMinutes();
-                }).max(Long::compareTo).orElse(0L);
+        long maxSessionsDuration = sessions.stream().map(session -> {
+            return Duration.between(session.getStart(), session.getEnd()).toMinutes();
+        }).max(Long::compareTo).orElse(0L);
 
-        return new SleepAnalysisResult<Long>("Максимальная продолжительность сна в минутах",
-                maxSessionsDuration);
+        return new SleepAnalysisResult<Long>("Максимальная продолжительность сна в минутах", maxSessionsDuration);
     }
 }

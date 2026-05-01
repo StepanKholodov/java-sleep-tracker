@@ -18,8 +18,9 @@ public class SleepingSession {
 
     /**
      * Создаёт новую сессию сна.
-     * @param start время засыпания, не может быть null
-     * @param end время пробуждения, не может быть null
+     *
+     * @param start     время засыпания, не может быть null
+     * @param end       время пробуждения, не может быть null
      * @param condition качество сна, не может быть null
      * @throws IllegalArgumentException если start >= end
      */

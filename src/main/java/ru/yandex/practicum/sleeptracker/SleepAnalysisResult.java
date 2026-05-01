@@ -1,4 +1,5 @@
 package ru.yandex.practicum.sleeptracker;
+
 /**
  * Универсальная обёртка для результата аналитической функции.
  * <p>
@@ -16,7 +17,7 @@ package ru.yandex.practicum.sleeptracker;
  *            {@link ru.yandex.practicum.sleeptracker.enums.Chronotype})
  * @see SleepAnalysisFunction
  */
-public class SleepAnalysisResult <T>{
+public class SleepAnalysisResult<T> {
     private final String description;
     private final T value;
 
@@ -24,7 +25,7 @@ public class SleepAnalysisResult <T>{
      * Создаёт новый результат анализа.
      *
      * @param description текстовое описание метрики, не может быть {@code null}
-     * @param value вычисленное значение, может быть {@code null} для некоторых типов
+     * @param value       вычисленное значение, может быть {@code null} для некоторых типов
      */
     public SleepAnalysisResult(String description, T value) {
         this.description = description;

@@ -50,16 +50,16 @@ public class SleepSessionReader {
      *
      * @param filePath путь к файлу с логом сна
      * @return список объектов {@link SleepingSession}, отсортированных по времени
-     * @throws IOException если файл не найден или не может быть прочитан
-     * @throws IncorrectSleepSession если строка файла имеет некорректный формат
+     * @throws IOException            если файл не найден или не может быть прочитан
+     * @throws IncorrectSleepSession  если строка файла имеет некорректный формат
      * @throws DateTimeParseException если дата/время не соответствуют ожидаемому формату
      */
     public static List<SleepingSession> read(Path filePath) throws IOException {
         try (Stream<String> lines = Files.lines(filePath)) {
 
-                return lines.filter(line -> !line.isBlank()).
-                        map(SleepSessionReader::parseLine).
-                        collect(Collectors.toList());
+            return lines.filter(line -> !line.isBlank()).
+                    map(SleepSessionReader::parseLine).
+                    collect(Collectors.toList());
         }
     }
 
@@ -70,7 +70,7 @@ public class SleepSessionReader {
      *
      * @param line строка формата "старт;конец;качество"
      * @return объект сессии сна
-     * @throws IncorrectSleepSession если строка содержит не 3 поля
+     * @throws IncorrectSleepSession  если строка содержит не 3 поля
      * @throws DateTimeParseException если не удалось распарсить дату/время
      */
     private static SleepingSession parseLine(String line) {

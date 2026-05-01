@@ -70,7 +70,7 @@ public class SleepTrackerApp {
      *
      * @param args аргументы командной строки; ожидается один аргумент — путь к файлу
      */
-    public static void main(String[] args)  {
+    public static void main(String[] args) {
         List<SleepingSession> sessions;
 
         if (args.length == 0) {
@@ -80,11 +80,11 @@ public class SleepTrackerApp {
 
 
         try {
-             sessions = SleepSessionReader.read(Path.of(args[0]));
+            sessions = SleepSessionReader.read(Path.of(args[0]));
         } catch (IOException e) {
             logger.log(Level.SEVERE, "Ошибка при чтении файла ", e);
             return;
-        }catch (IncorrectSleepSession | DateTimeParseException e) {
+        } catch (IncorrectSleepSession | DateTimeParseException e) {
             logger.log(Level.SEVERE, "Файл содержит ошибки: " + e.getMessage());
             return;
         }

@@ -19,7 +19,6 @@ public class SleepSessionReaderTest {
     @Test
     @DisplayName("Корректный файл должен парситься без ошибок и возвращать правильные сессии")
     void shouldParseValidFile(@TempDir Path tempDir) throws IOException {
-        // given
         Path file = tempDir.resolve("valid_sleep_log.txt");
         String content = """
                 01.10.25 22:15;02.10.25 08:00;GOOD
@@ -50,7 +49,6 @@ public class SleepSessionReaderTest {
         String content = "01.10.25 22:15;02.10.25 08:00\n";
         Files.writeString(file, content);
 
-        // when / then
         IncorrectSleepSession exception = assertThrows(
                 IncorrectSleepSession.class,
                 () -> SleepSessionReader.read(file),
