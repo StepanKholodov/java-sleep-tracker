@@ -3,8 +3,7 @@ package ru.yandex.practicum.sleeptracker;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.yandex.practicum.sleeptracker.enums.Condition;
-import ru.yandex.practicum.sleeptracker.functions.MinSessionDuration;
-import ru.yandex.practicum.sleeptracker.functions.TotalSessionsCounter;
+import ru.yandex.practicum.sleeptracker.functions.MinSessionsDuration;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -12,8 +11,8 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class MinSessionDurationTest {
-    private final MinSessionDuration counter = new MinSessionDuration();
+public class MinSessionsDurationTest {
+    private final MinSessionsDuration counter = new MinSessionsDuration();
 
     @Test
     @DisplayName("Пустой список должен вернуть 0 ")
@@ -21,12 +20,12 @@ public class MinSessionDurationTest {
         List<SleepingSession> emptyList = new ArrayList<>();
         SleepAnalysisResult<Long> result = counter.analyze(emptyList);
 
-        assertEquals("Минимальная продолжительность сна в минутах ", result.getDescription());
+        assertEquals("Минимальная продолжительность сна в минутах", result.getDescription());
         assertEquals(0, result.getValue().intValue());
     }
 
     @Test
-    @DisplayName("Список из трёх сессий должен вернуть ")
+    @DisplayName("Список из данных трёх сессий должен вернуть 50")
     void shouldReturnCorrectCountForMultipleSessions() {
         List<SleepingSession> sessions = new ArrayList<>();
         sessions.add(new SleepingSession(
@@ -47,7 +46,7 @@ public class MinSessionDurationTest {
 
         SleepAnalysisResult<Long> result = counter.analyze(sessions);
 
-        assertEquals("Минимальная продолжительность сна в минутах ", result.getDescription());
+        assertEquals("Минимальная продолжительность сна в минутах", result.getDescription());
         assertEquals(50, result.getValue().intValue());
     }
 }

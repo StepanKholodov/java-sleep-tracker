@@ -1,4 +1,7 @@
 package ru.yandex.practicum.sleeptracker;
 
-public class IncorrectSleepSession {
+public class IncorrectSleepSession extends RuntimeException{
+    public IncorrectSleepSession(String message) {
+        super(message);
+    }
 }
