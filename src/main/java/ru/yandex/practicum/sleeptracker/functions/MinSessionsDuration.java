@@ -7,6 +7,18 @@ import ru.yandex.practicum.sleeptracker.SleepingSession;
 import java.time.Duration;
 import java.util.List;
 
+/**
+ * Находит минимальную продолжительность сессии сна.
+ * <p>
+ * Продолжительность вычисляется в минутах как разница между временем
+ * пробуждения и засыпания.
+ * <p>
+ * <b>Возвращаемое значение:</b> минимальная длительность в минутах ({@link Long}).
+ * Для пустого списка возвращается {@code 0}.
+ *
+ * @see Duration
+ * @see SleepingSession
+ */
 public class MinSessionsDuration implements SleepAnalysisFunction {
     @Override
     public SleepAnalysisResult<Long> analyze(List<SleepingSession> sessions) {

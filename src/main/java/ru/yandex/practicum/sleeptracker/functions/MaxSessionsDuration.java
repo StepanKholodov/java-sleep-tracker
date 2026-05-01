@@ -7,6 +7,14 @@ import ru.yandex.practicum.sleeptracker.SleepingSession;
 import java.time.Duration;
 import java.util.List;
 
+/**
+ * Находит максимальную продолжительность сессии сна.
+ * <p>
+ * Продолжительность вычисляется в минутах.
+ * <p>
+ * <b>Возвращаемое значение:</b> максимальная длительность в минутах ({@link Long}).
+ * Для пустого списка возвращается {@code 0}.
+ */
 public class MaxSessionsDuration implements SleepAnalysisFunction {
     @Override
     public SleepAnalysisResult<Long> analyze(List<SleepingSession> sessions) {

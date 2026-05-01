@@ -1,9 +1,10 @@
-package ru.yandex.practicum.sleeptracker;
+package ru.yandex.practicum.sleeptracker.functions;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import ru.yandex.practicum.sleeptracker.SleepAnalysisResult;
+import ru.yandex.practicum.sleeptracker.SleepingSession;
 import ru.yandex.practicum.sleeptracker.enums.Condition;
-import ru.yandex.practicum.sleeptracker.functions.MinSessionsDuration;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -11,8 +12,8 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class MinSessionsDurationTest {
-    private final MinSessionsDuration counter = new MinSessionsDuration();
+public class BadSessionsQualityTest {
+    private final BadSessionsQuality counter = new BadSessionsQuality();
 
     @Test
     @DisplayName("Пустой список должен вернуть 0 ")
@@ -20,12 +21,12 @@ public class MinSessionsDurationTest {
         List<SleepingSession> emptyList = new ArrayList<>();
         SleepAnalysisResult<Long> result = counter.analyze(emptyList);
 
-        assertEquals("Минимальная продолжительность сна в минутах", result.getDescription());
-        assertEquals(0, result.getValue().intValue());
+        assertEquals("Количество сессий с плохим качеством сна", result.getDescription());
+        assertEquals(0, result.getValue());
     }
 
     @Test
-    @DisplayName("Список из данных трёх сессий должен вернуть 50")
+    @DisplayName("Список из данных трёх сессий должен вернуть 2")
     void shouldReturnCorrectCountForMultipleSessions() {
         List<SleepingSession> sessions = new ArrayList<>();
         sessions.add(new SleepingSession(
@@ -36,17 +37,17 @@ public class MinSessionsDurationTest {
         sessions.add(new SleepingSession(
                 LocalDateTime.of(2025, 10, 2, 23, 0),
                 LocalDateTime.of(2025, 10, 3, 8, 0),
-                Condition.NORMAL
+                Condition.BAD
         ));
         sessions.add(new SleepingSession(
                 LocalDateTime.of(2025, 10, 3, 14, 30),
-                LocalDateTime.of(2025, 10, 3, 15, 20),
+                LocalDateTime.of(2025, 10, 3, 15, 21),
                 Condition.BAD
         ));
 
         SleepAnalysisResult<Long> result = counter.analyze(sessions);
 
-        assertEquals("Минимальная продолжительность сна в минутах", result.getDescription());
-        assertEquals(50, result.getValue().intValue());
+        assertEquals("Количество сессий с плохим качеством сна", result.getDescription());
+        assertEquals(2, result.getValue());
     }
 }

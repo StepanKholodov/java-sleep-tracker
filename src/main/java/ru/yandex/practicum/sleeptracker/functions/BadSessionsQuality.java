@@ -5,9 +5,17 @@ import ru.yandex.practicum.sleeptracker.SleepAnalysisResult;
 import ru.yandex.practicum.sleeptracker.SleepingSession;
 import ru.yandex.practicum.sleeptracker.enums.Condition;
 
-import java.time.Duration;
 import java.util.List;
 
+/**
+ * Подсчитывает количество сессий с низким качеством сна.
+ * <p>
+ * Сессия считается "плохой", если её поле {@code condition} равно {@link Condition#BAD}.
+ * <p>
+ * <b>Возвращаемое значение:</b> количество плохих сессий ({@link Long}).
+ *
+ * @see Condition
+ */
 public class BadSessionsQuality implements SleepAnalysisFunction {
     @Override
     public SleepAnalysisResult<Long> analyze(List<SleepingSession> sessions) {

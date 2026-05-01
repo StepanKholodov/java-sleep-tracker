@@ -1,0 +1,19 @@
+package ru.yandex.practicum.sleeptracker.enums;
+
+
+public enum Chronotype {
+    NIGHT_OWL("Сова"),
+    MORNING_LARK("Жаворонок"),
+    DOVE("Голубь");
+
+    private final String displayName;
+
+    Chronotype(String displayName) {
+        this.displayName = displayName;
+    }
+
+    @Override
+    public String toString() {
+        return displayName;
+    }
+}

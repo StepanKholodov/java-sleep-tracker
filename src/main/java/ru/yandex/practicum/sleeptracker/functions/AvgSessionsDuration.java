@@ -7,6 +7,14 @@ import ru.yandex.practicum.sleeptracker.SleepingSession;
 import java.time.Duration;
 import java.util.List;
 
+/**
+ * Вычисляет среднюю продолжительность сессии сна.
+ * <p>
+ * Среднее значение рассчитывается как арифметическое среднее всех длительностей.
+ * <p>
+ * <b>Возвращаемое значение:</b> средняя длительность в минутах ({@link Double}).
+ * Для пустого списка возвращается {@code 0.0}.
+ */
 public class AvgSessionsDuration implements SleepAnalysisFunction {
     @Override
     public SleepAnalysisResult<Double> analyze(List<SleepingSession> sessions) {

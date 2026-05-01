@@ -1,9 +1,10 @@
-package ru.yandex.practicum.sleeptracker;
+package ru.yandex.practicum.sleeptracker.functions;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import ru.yandex.practicum.sleeptracker.SleepAnalysisResult;
+import ru.yandex.practicum.sleeptracker.SleepingSession;
 import ru.yandex.practicum.sleeptracker.enums.Condition;
-import ru.yandex.practicum.sleeptracker.functions.MaxSessionsDuration;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
