@@ -57,9 +57,9 @@ public class SleepSessionReader {
     public static List<SleepingSession> read(Path filePath) throws IOException {
         try (Stream<String> lines = Files.lines(filePath)) {
 
-            return lines.filter(line -> !line.isBlank()).
-                    map(SleepSessionReader::parseLine).
-                    collect(Collectors.toList());
+            return lines.filter(line -> !line.isBlank())
+                    .map(SleepSessionReader::parseLine)
+                    .collect(Collectors.toList());
         }
     }
 
