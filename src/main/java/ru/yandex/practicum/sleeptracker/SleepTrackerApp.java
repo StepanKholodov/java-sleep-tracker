@@ -84,7 +84,7 @@ public class SleepTrackerApp {
         } catch (IOException e) {
             logger.log(Level.SEVERE, "Ошибка при чтении файла ", e);
             return;
-        } catch (IncorrectSleepSession | DateTimeParseException e) {
+        } catch (IncorrectSleepSession e ) {
             logger.log(Level.SEVERE, "Файл содержит ошибки: " + e.getMessage());
             return;
         }

@@ -25,10 +25,17 @@ public class SleepingSession {
      * @throws IllegalArgumentException если start >= end
      */
     public SleepingSession(LocalDateTime start, LocalDateTime end, Condition condition) {
+        if (start == null || end == null || condition == null) {
+            throw new IllegalArgumentException("Параметры start, end и condition не могут быть null");
+        }
+        if (!start.isBefore(end)) {
+            throw new IllegalArgumentException("Время засыпания (start) должно быть строго раньше времени пробуждения (end)");
+        }
         this.start = start;
         this.end = end;
         this.condition = condition;
     }
+
 
     /**
      * @return время начала сессии

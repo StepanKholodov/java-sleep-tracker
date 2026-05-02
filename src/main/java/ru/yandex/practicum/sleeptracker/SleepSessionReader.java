@@ -80,10 +80,15 @@ public class SleepSessionReader {
             throw new IncorrectSleepSession("некорректный формат строки - " + line);
         }
 
-        LocalDateTime start = LocalDateTime.parse(split[0].trim(), FORMATTER);
-        LocalDateTime end = LocalDateTime.parse(split[1].trim(), FORMATTER);
-
-
-        return new SleepingSession(start, end, Condition.valueOf(split[2].toUpperCase()));
+        try {
+            LocalDateTime start = LocalDateTime.parse(split[0].trim(), FORMATTER);
+            LocalDateTime end = LocalDateTime.parse(split[1].trim(), FORMATTER);
+            Condition condition = Condition.valueOf(split[2].trim().toUpperCase());
+            return new SleepingSession(start, end, condition);
+        } catch (DateTimeParseException e) {
+            throw new IncorrectSleepSession("Ошибка парсинга даты/времени в строке: " + line, e);
+        } catch (IllegalArgumentException e) {
+            throw new IncorrectSleepSession("Некорректное значение качества сна в строке: " + line, e);
+        }
     }
 }
