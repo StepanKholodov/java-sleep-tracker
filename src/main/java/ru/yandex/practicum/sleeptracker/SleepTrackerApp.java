@@ -10,7 +10,6 @@ import java.util.logging.Level;
 
 import java.io.IOException;
 import java.nio.file.Path;
-import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -84,7 +83,7 @@ public class SleepTrackerApp {
         } catch (IOException e) {
             logger.log(Level.SEVERE, "Ошибка при чтении файла ", e);
             return;
-        } catch (IncorrectSleepSession e ) {
+        } catch (IncorrectSleepSession e) {
             logger.log(Level.SEVERE, "Файл содержит ошибки: " + e.getMessage());
             return;
         }
